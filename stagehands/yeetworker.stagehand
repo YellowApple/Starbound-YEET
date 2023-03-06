@@ -1,0 +1,13 @@
+{
+    "type": "yeetworker",
+    "scripts": ["/stagehands/yeetworker.lua"],
+    "scriptDelta": 1,
+
+    "saveParameters": [
+        "stemName",
+        "stemHueShift",
+        "foliageName",
+        "foliageHueShift",
+        "scriptStorage"
+    ]
+}

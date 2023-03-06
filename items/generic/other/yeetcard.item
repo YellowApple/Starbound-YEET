@@ -1,0 +1,9 @@
+{
+    "itemName": "yeetcard",
+    "price": 42,
+    "rarity": "Legendary",
+    "category": "codex",
+    "inventoryIcon": "yeetcard.png",
+    "description": "A blank datacard.",
+    "shortdescription": "YEET Datacard"
+}

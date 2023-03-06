@@ -1,0 +1,17 @@
+{
+    "itemName": "yeet",
+    "price": 525600,
+    "maxStack": 1,
+    "rarity": "legendary",
+    "description": "A hacked Matter Manipulator with the letters \"YEET\" scratched into the casing.",
+    "shortdescription": "YEET",
+    "twoHanded": true,
+    "category": "Tool",
+    "itemTags": ["tool"],
+    "inventoryIcon": "yeet.png",
+    "image": "yeet.png",
+    "animationScripts": ["/items/active/effects/yeetEffect.lua"],
+    "animationDelta": 2,
+    "scripts": ["yeet.lua"],
+    "scriptDelta": 1
+}

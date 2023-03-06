@@ -1,0 +1,9 @@
+"workshopitem"
+{
+"appid" "211820"
+"publishedfileid" "2943033037"
+"contentfolder" "{{PWD}}/out/pkg"
+"previewfile" "{{PWD}}/out/preview.jpg"
+"title" "YEET: YellowApple's Easy Editing Tool"
+"changenote" "Add tags to _metadata."
+}
