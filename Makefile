@@ -11,9 +11,11 @@ $(OUT)/pkg/contents.pak: clean
 	cp -rv stagehands $(OUT)/src/stagehands
 	cp _metadata $(OUT)/src/_metadata
 	cp preview.jpg $(OUT)/preview.jpg
-	$(SB_PACKER) $(OUT)/src $(OUT)/pkg/contents.pak
+	$(SB_PACKER) $(OUT)/src $(OUT)/pkg/YEET.pak
 
 upload: $(OUT)/pkg/contents.pak
+	mkdir -p $(OUT)/workshop
+	cp $(OUT)/pkg/YEET.pak $(OUT)/workshop/contents.pak
 	sed 's,{{PWD}},$(PWD),g' <metadata.vdf.template >metadata.vdf
 	$(STEAMCMD) +workshop_build_item $(PWD)/metadata.vdf +quit
 
