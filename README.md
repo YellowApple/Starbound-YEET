@@ -168,3 +168,31 @@ far:
   non-rectangular and layer-specific selections are planned but not
   yet implemented (this will likely depend on the YEET-native template
   format mentioned above).
+
+# I'm a modder.  How can I hack on it?
+
+It's just an ordinary Starbound mod, so all the Lua files and such are
+in their normal places.  Clone the repo, make your changes, submit a
+PR, all that jazz :)
+
+I use GNU Make (BSD Make might work too?) to automate packaging for
+the Steam Workshop (using
+[SteamCMD](https://developer.valvesoftware.com/wiki/SteamCMD); running
+`make` in the mod's directory will generate `out/pkg/contents.pak`,
+and running `make upload` will generate a valid `manifest.vdf` and
+handle the uploading.  Obviously you need permissions in order to
+actually upload over the top of my version; if you're publishing your
+own fork, change the `"publishedfileid"` field in
+`metadata.vdf.template` to `"0"` to tell SteamCMD to create a new
+Workshop item instead of attempting to overwrite mine (and don't
+forget to change that to whatever gets set in the generated
+`manifest.vdf`!).
+
+Note that you need the `STEAMCMD_USER` environment variable set for
+`make upload` to work; I use [`asdf` and
+`direnv`](https://github.com/asdf-community/asdf-direnv) to
+automatically set `STEAMCMD_USER` to my Steam username whenever I `cd`
+into YEET's mod folder; you can do the same by copying `.envrc.sample`
+to `.envrc`, adjusting to use your Steam username (whichever one you
+use to log into Steam itself), and running `direnv allow` to activate
+it.
