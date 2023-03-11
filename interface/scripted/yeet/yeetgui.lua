@@ -111,9 +111,15 @@ function resetSelection()
 end
 
 function serializeMIAB()
-    local template = config.getParameter("yeetTemplate")
-    if type(template) ~= "table" then return end
-    if template.kind ~= "miab" then return end
+    if type(self.datacard) ~= "table" then return end
+    if self.datacard.parameters.templateKind ~= "miab" then return end
+    local template = {
+        name = self.datacard.parameters.shortdescription,
+        description = self.datacard.parameters.description,
+        timestamp = self.datacard.parameters.timestamp,
+        kind = self.datacard.parameters.templateKind,
+        data = self.datacard.parameters.templateData
+    }
     TemplateMIAB.loadTemplate(template)
     TemplateMIAB.logMIABFiles()
 end
