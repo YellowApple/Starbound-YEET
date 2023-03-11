@@ -40,6 +40,11 @@ function closeGUI()
     pane.dismiss()
 end
 
+function unfocusTextFields()
+    widget.blur("txtTemplateName")
+    widget.blur("txtTemplateDescription")
+end
+
 function selectMode(id)
     -- Why in the actual fuck is id a string when it's clearly a
     -- number in the JSON?  I hate Lua I hate JSON I hate it I hate it
@@ -102,11 +107,6 @@ function resetSelection()
     widget.setChecked("btnsSelectMode.1", false)
     widget.setChecked("btnsSelectMode.2", false)
     tellYEET("yeetResetSelection")
-end
-
-function unfocusTextFields()
-    widget.blur("txtTemplateName")
-    widget.blur("txtTemplateDescription")
 end
 
 ----
