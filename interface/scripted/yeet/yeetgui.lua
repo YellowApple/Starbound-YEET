@@ -104,6 +104,11 @@ function resetSelection()
     tellYEET("yeetResetSelection")
 end
 
+function unfocusTextFields()
+    widget.blur("txtTemplateName")
+    widget.blur("txtTemplateDescription")
+end
+
 ----
 -- Event loop steps
 ----
