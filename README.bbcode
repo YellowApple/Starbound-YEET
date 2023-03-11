@@ -68,15 +68,4 @@ It doesn't touch other mods in any way.  It doesn't even touch or depend upon MI
 Probably not?  I'd strongly suggest backing up your world files before YEETing all over it.  If you plan on uninstalling it, the usual cautions apply w.r.t. any YEETs or datacards you've got lying around - and I'd also strongly suggest [I]not[/I] uninstalling it while a YEET's in the middle of an operation.  You know, normal modding common sense.
 
 [h2]What are the known issues with it?[/h2]
-Per the top of this mod page, this is alpha-quality software and has undergone very minimal testing.  My to-do list so far:
-[LIST]
-[*]The UI is a mess and needs cleaned up.
-[*]The UI and item fight with each other sometimes (race conditions, probably), so cutting/snarfing won't always update the UI fields to indicate that they've overwritten the loaded datacard, and holding Backspace in the text fields will stick as the item keeps resetting what it thinks the field should be.
-[*]YEET supports outputting serialized MIAB printers to starbound.log, but there's no way to invoke this yet.
-[*]YEET (unlike MIAB ) doesn't preserve crafting table upgrades.
-[*]There's a log of debug logging that I should probably start turning off instead of spamming everyone's starbound.log.
-[*]Sometimes you gotta snarf something a second time before it correctly overwrites the existing datacard (race condition somewhere?).
-[*]A YEET-native template format (instead of literally just using MIAB's format) is planned but not yet implemented.
-[*]I hope for YEET to eventually support WEdit templates/blueprints, but that has barely been investigated (let alone implemented).
-[*]Selections are rectangular only, and overwrite both tile layers; non-rectangular and layer-specific selections are planned but not yet implemented (this will likely depend on the YEET-native template format mentioned above).
-[/LIST]
+All known bugs are tracked on [URL=https://github.com/YellowApple/YEET/issues]GitHub[/URL].

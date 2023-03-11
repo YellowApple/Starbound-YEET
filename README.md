@@ -142,32 +142,8 @@ sense.
 
 # What are the known issues with it?
 
-Per the top of this Workshop item description, this is alpha-quality
-software and has undergone very minimal testing.  My to-do list so
-far:
-
-- The UI is a mess and needs cleaned up.
-- The UI and item fight with each other sometimes (race conditions,
-  probably), so cutting/snarfing won't always update the UI fields to
-  indicate that they've overwritten the loaded datacard, and holding
-  Backspace in the text fields will stick as the item keeps resetting
-  what it thinks the field should be.
-- YEET supports outputting serialized MIAB printers to starbound.log,
-  but there's no way to invoke this yet.
-- YEET (unlike MIAB) doesn't preserve crafting table upgrades.
-- There's a log of debug logging that I should probably start turning
-  off instead of spamming everyone's starbound.log.
-- Sometimes you gotta snarf something a second time before it
-  correctly overwrites the existing datacard (race condition
-  somewhere?).
-- A YEET-native template format (instead of literally just using
-  MIAB's format) is planned but not yet implemented.
-- I hope for YEET to eventually support WEdit templates/blueprints,
-  but that has barely been investigated (let alone implemented).
-- Selections are rectangular only, and overwrite both tile layers;
-  non-rectangular and layer-specific selections are planned but not
-  yet implemented (this will likely depend on the YEET-native template
-  format mentioned above).
+All known bugs are tracked on
+[GitHub](https://github.com/YellowApple/YEET/issues).
 
 # I'm a modder.  How can I hack on it?
 
