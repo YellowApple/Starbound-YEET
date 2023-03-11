@@ -14,6 +14,7 @@ function init()
 
     self.getHeartbeatPromise = nil
     self.getHeartbeatError = nil
+    self.heartbeatDelay = 0
     self.newCardReady = false
 
     self.firstRun = true
@@ -53,12 +54,14 @@ function setTemplateName()
     local text = widget.getText("txtTemplateName")
     self.datacard.parameters.shortdescription = text
     self.getHeartbeatPromise = tellYEET("yeetSetTemplate", dc2Template())
+    self.heartbeatDelay = 60
 end
 
 function setTemplateDescription()
     local text = widget.getText("txtTemplateDescription")
     self.datacard.parameters.description = text
     self.getHeartbeatPromise = tellYEET("yeetSetTemplate", dc2Template())
+    self.heartbeatDelay = 60
 end
 
 function touchTemplateDatacard()
@@ -126,6 +129,10 @@ function firstRun()
 end
 
 function getHeartbeat()
+    if self.heartbeatDelay > 0 then
+        self.heartbeatDelay = self.heartbeatDelay - 1
+        return
+    end
     local promise = self.getHeartbeatPromise
     if promise then
         if promise:finished() then
