@@ -475,8 +475,8 @@ function T.logMIABPatch(params)
         "-- miab file serialisation ends\n" ..
         "-------------------------------------------\n",
         params.tag, params.folder, params.filename, params.filename,
-        params.folder, params.folder, params.filename,
-        {sb.printJson(params.content, 1)}, params.filename, params.folder,
+        params.folder, params.filename, params.folder,
+        sb.printJson({params.content}, 1), params.filename, params.folder,
         sb.printJson(params.content, 1)
     )
 end
