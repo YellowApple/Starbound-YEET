@@ -187,6 +187,7 @@ end
 function workerFinishedHandler(messageName, entityIsLocal)
     sb.logInfo("YEET: worker ID %s finished", self.progress.workerId)
     setProgress({})
+    self.sendTemplate = true
 end
 
 function getProgressHandler(messageName, entityIsLocal, params)
