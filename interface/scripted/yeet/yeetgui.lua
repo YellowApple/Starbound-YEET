@@ -1,4 +1,5 @@
 require "/scripts/util.lua"
+require "/scripts/yeet/TemplateMIAB.lua"
 
 function init()
     self.selection = config.getParameter("yeetSelection") or {}
@@ -107,6 +108,14 @@ function resetSelection()
     widget.setChecked("btnsSelectMode.1", false)
     widget.setChecked("btnsSelectMode.2", false)
     tellYEET("yeetResetSelection")
+end
+
+function serializeMIAB()
+    local template = config.getParameter("yeetTemplate")
+    if type(template) ~= "table" then return end
+    if template.kind ~= "miab" then return end
+    TemplateMIAB.loadTemplate(template)
+    TemplateMIAB.logMIABFiles()
 end
 
 ----
