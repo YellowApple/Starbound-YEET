@@ -271,11 +271,28 @@ function saveObject(id)
     for i,p in ipairs(self.saveParameters) do
         obj.data[p] = world.getObjectParameter(id, p)
     end
-    -- Lastly, this is where I would put logic to save crafting table
-    -- upgrades.  However, that's a royal pain in the ass to do, and
-    -- will almost certainly break for modded crafting tables anyway,
-    -- so I'll need to come up with something later (FIXME: come up
-    -- with something later).
+    -- Lastly, we do an ad-hoc check for crafting table upgrades.
+    -- This is a dirty hack, and only *slightly* less dirty than the
+    -- hack in MIAB, but it seems like it should work for all vanilla
+    -- crafting tables and any modded ones that follow the same
+    -- conventions as vanilla.  If there was a way to export
+    -- storage.currentStage directly then we could just use that, but
+    -- there doesn't seem to be an easy way to write a JSON patch that
+    -- says "apply this patch to any and all object files that have
+    -- such-and-such script", and while overwriting
+    -- upgradeablecraftingobject.lua with a version that doesn't
+    -- arbitrarily suck would certainly do the job, that seems like a
+    -- great way to make YEET incompatible with a whole bunch of mods,
+    -- so this approach will have to do.
+    local upgradeData = world.callScriptedEntity(id, "currentStageData")
+    if type(upgradeData) == "table" then
+        merge(obj.data, upgradeData.itemSpawnParameters)
+        local animationState = upgradeData.animationState
+        local parsedStage = tonumber(string.sub(animationState, -1))
+        if parsedStage then
+            obj.data.startingUpgradeStage = parsedStage
+        end
+    end
 
     -- sb.logInfo("YEET worker: saving object %s: %s", id, obj)
     TemplateMIAB.writeObject(relativePos(pos), obj)
@@ -429,6 +446,19 @@ function relativePos(pos)
     local x = math.floor(pos[1] - self.selection.origin[1])
     local y = math.floor(pos[2] - self.selection.origin[2])
     return {x,y}
+end
+
+-- Derived from https://stackoverflow.com/a/7470789/7275674, which
+-- happens to be the exact implementation MIAB uses
+function merge(t1, t2)
+    for k, v in pairs(t2) do
+        if (type(v) == "table") and (type(t1[k] or false) == "table") then
+            merge(t1[k], t2[k])
+        else
+            t1[k] = v
+        end
+    end
+    return t1
 end
 
 function maybeYield(retval)
