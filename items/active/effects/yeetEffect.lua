@@ -80,10 +80,14 @@ function updateOverlay()
     if self.extent then updatePoint(self.extent, 2) end
     if self.origin and self.extent then
         updateBox(self.origin, self.extent)
-        updateText({self.origin[1], self.origin[2]-1}, self.text)
+        if self.origin[1] and self.origin[2] then
+            updateText({self.origin[1], self.origin[2]-1}, self.text)
+        end
         local modeLine = "Mode: %s"
-        updateText({self.origin[1], self.extent[2]+2},
-            modeLine:format(self.mode))
+        if self.origin[1] and self.extent[2] then
+            updateText({self.origin[1], self.extent[2]+2},
+                modeLine:format(self.mode))
+        end
     end
     if self.userPos then
         updateText({self.userPos[1], self.userPos[2]-4},
