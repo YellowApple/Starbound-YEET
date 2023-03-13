@@ -278,9 +278,21 @@ function generateStatusLine()
         return string.format("%s (%s/%s)", self.progress.task,
                              self.progress.current, self.progress.max)
     end
-    if readyToYeet() then
-        return "Ready!"
+    if not self.selection.origin then
+        return "No origin set (left click somewhere in the world)"
     end
+    if not self.selection.extent then
+        return "No extent set (shift + left click somewhere in the world)"
+    end
+    if not self.selection.mode then
+        return "No mode selected (select one above)"
+    end
+    if self.selection.mode == "paste" then
+        if type(self.datacard.parameters) ~= "table" then
+            return "No datacard loaded (drop one into the slot above)"
+        end
+    end
+    return "Ready!"
 end
 
 function everyOther()
