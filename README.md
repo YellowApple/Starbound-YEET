@@ -2,13 +2,13 @@
 
 Matter manipulation the likes of which even **GOD** has never seen!
 
-# !!! WARNING !!!
+## !!! WARNING !!!
 
 This is highly experimental and alpha-quality.  There are glaring
 bugs.  The UI is a trainwreck.  A lot of features are missing.  Use at
 your own risk.  *Caveat emptor*.
 
-# What is it?
+## What is it?
 
 It's a mod for [Starbound](https://playstarbound.com/) that gives
 players a tool capable of cutting/copying/pasting arbitrary regions of
@@ -21,7 +21,7 @@ were in some sort of spicy love triangle, this would be the resulting
 offspring (don't ask me how a child can have three biological parents;
 that's between you and your doctor).
 
-# Why'd you make it?
+## Why'd you make it?
 
 For awhile I was using WEdit, but I didn't like its insistence on me
 using a specific tech upgrade, and I didn't like having to be in the
@@ -38,29 +38,33 @@ I remembered that the Holographic Ruler mod is able to create overlays
 that are indeed visible without needing the debug UI enabled, and down
 the rabbit hole I dove...
 
-# How do I install it?
+## How do I install it?
 
 Multiple ways:
 
+- Download YEET.pak from [the Starbound
+  forums](https://community.playstarbound.com/resources/yeet-yellowapples-easy-editing-tool.6242/)
+  and stick it in Starbound's mods folder (like any other mod)
 - Subscribe to it on the [Steam
   Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=2943033037)
 - Clone it into Starbound's `mods` folder:
-  - On Linux: `git clone https://github.com/YellowApple/YEET.git
+  - On Linux: `git clone
+    https://github.com/YellowApple/Starbound-YEET.git
     ~/.steam/steam/steamapps/common/Starbound/mods/YEET`
   - On other platforms: ¯\\\_(ツ)_/¯
 
 
-# How do I get it?
+## How do I get it?
 
 There's no crafting recipe for it yet, but you can spawn it with
 `/spawnitem yeet`.
 
-# What does it do, and how do I use it?
+## What does it do, and how do I use it?
 
 Equip it like any other tool/weapon.  When equipped, you should see
 some yellow text hovering by your character showing the controls.
 
-## Selection
+### Selection
 
 YEET works with rectangular regions.  Left-clicking somewhere in the
 world will set that point as the "origin" and mark it with a pink
@@ -72,7 +76,7 @@ border around the selected region and display (in yellow text) both
 the current editing mode and the name of the currently-loaded datacard
 (more on that below).
 
-## Operations
+### Operations
 
 Right-click anywhere to open YEET's UI.  Here you can select an
 operation via one of the buttons at the top of the window:
@@ -99,7 +103,7 @@ world coordinates and the dimensions of the selection.  At the very
 bottom is a status line and a tiny "RESET" button to clear the current
 selection.
 
-## Datacards
+### Datacards
 
 Every time you cut or snarf a selection, YEET will create a new
 datacard containing everything that was selected: blocks, tile mods,
@@ -120,18 +124,18 @@ Modules In A Box is also supported; YEET will treat it like a datacard
 user loads an existing datacard, so the selection rectangle might not
 match what actually gets replaced.
 
-# Will this work in multiplayer?
+## Will this work in multiplayer?
 
 I have no idea.  I only play singleplayer, so I haven't tested it in a
 multiplayer setting.  If any brave souls want to try it out and report
 back, I'd appreciate it.
 
-# Is this compatible with other mods?
+## Is this compatible with other mods?
 
 It doesn't touch other mods in any way.  It doesn't even touch or
 depend upon MIAB in any way, and it's explicitly compatible with it.
 
-# Will this break my saves?
+## Will this break my saves?
 
 Probably not?  I'd strongly suggest backing up your world files before
 YEETing all over it.  If you plan on uninstalling it, the usual
@@ -140,12 +144,12 @@ and I'd also strongly suggest *not* uninstalling it while a
 YEET's in the middle of an operation.  You know, normal modding common
 sense.
 
-# What are the known issues with it?
+## What are the known issues with it?
 
 All known bugs are tracked on
 [GitHub](https://github.com/YellowApple/YEET/issues).
 
-# I'm a modder.  How can I hack on it?
+## I'm a modder.  How can I hack on it?
 
 It's just an ordinary Starbound mod, so all the Lua files and such are
 in their normal places.  Clone the repo, make your changes, submit a
