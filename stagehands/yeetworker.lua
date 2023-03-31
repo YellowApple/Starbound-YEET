@@ -387,7 +387,7 @@ function restoreTile(pos)
     if mods.bg then world.placeMod(pos, "background", mods.bg) end
     if mods.fg then world.placeMod(pos, "foreground", mods.fg) end
     if colors.bg then world.setMaterialColor(pos, "background", colors.bg) end
-    if colors.fg then world.setMaterialColor(pps, "foreground", colors.fg) end
+    if colors.fg then world.setMaterialColor(pos, "foreground", colors.fg) end
 end
 
 function saveLiquid(pos)
