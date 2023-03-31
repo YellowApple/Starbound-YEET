@@ -8,6 +8,14 @@ require "/scripts/yeet/TemplateMIAB.lua"
 function init()
     self.source = config.getParameter("yeetSource") or nil
     self.selection = config.getParameter("yeetSelection") or {}
+    if type(self.selection.origin) ~= "table" then
+        self.initCroaked = "invalid origin"
+        return
+    end
+    if type(self.selection.extent) ~= "table" then
+        self.initCroaked = "invalid extent"
+        return
+    end
     self.inTemplate = config.getParameter("yeetTemplate") or {}
     self.saveParameters = config.getParameter("saveParameters") or {}
     self.outTemplate = {}
@@ -42,6 +50,14 @@ function init()
 end
 
 function update()
+    if self.initCroaked then
+        sb.logError("YEET worker: init failed: %s", self.initCroaked)
+        tellYEET("yeetSetProgress", { task = "Error",
+                                      current = nil,
+                                      max = nil })
+        croak()
+        return
+    end
     if coroutine.status(self.worker) == "dead" then croak(); return end
     local success, result = coroutine.resume(self.worker)
     sb.logInfo("YEET worker: coro success: %s; result: %s", success, result)
